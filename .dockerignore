@@ -1,0 +1,41 @@
+# Version control
+.git
+.gitignore
+
+# Python cache and virtual environments
+.venv
+venv
+__pycache__
+*.py[cod]
+*$py.class
+.pytest_cache
+.mypy_cache
+.ruff_cache
+.coverage
+htmlcov
+
+# Local databases
+*.db
+*.sqlite
+*.sqlite3
+
+# Local downloaded image folders
+azure-upload-images/
+azure-upload-images-optimized/
+
+# Local environment and editor files
+.env
+.env.*
+!.env.example
+.DS_Store
+.idea
+.vscode
+*.swp
+*.swo
+
+# Logs and temporary files
+*.log
+*.tmp
+*.temp
+.tmp/
+tmp/

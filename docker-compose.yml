@@ -1,0 +1,23 @@
+services:
+  goshow-app:
+    build: .
+    container_name: goshow-app
+    ports:
+      - "5000:5000"
+    environment:
+      - NOTIFICATION_SERVICE_URL=http://notification-service:5001
+      - DATABASE_PATH=/app/data/goshow.db
+    volumes:
+      - goshow-data:/app/data
+    depends_on:
+      - notification-service
+
+  notification-service:
+    build: ./notification_service
+    container_name: goshow-notification
+    ports:
+      - "5001:5001"
+
+volumes:
+  goshow-data:
+

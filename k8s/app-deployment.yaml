@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: goshow-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: goshow-app
+  template:
+    metadata:
+      labels:
+        app: goshow-app
+    spec:
+      containers:
+        - name: goshow-app
+          image: goshow-app:1.0
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 5000
+          env:
+            - name: NOTIFICATION_SERVICE_URL
+              value: http://goshow-notification-service:5001
+            - name: DATABASE_PATH
+              value: /app/data/goshow.db
+          volumeMounts:
+            - name: goshow-data
+              mountPath: /app/data
+      volumes:
+        - name: goshow-data
+          emptyDir: {}

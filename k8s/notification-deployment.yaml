@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: goshow-notification
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: goshow-notification
+  template:
+    metadata:
+      labels:
+        app: goshow-notification
+    spec:
+      containers:
+        - name: goshow-notification
+          image: goshow-notification:1.0
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 5001
+

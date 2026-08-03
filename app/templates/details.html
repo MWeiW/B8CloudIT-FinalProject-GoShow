@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="section details-layout">
+    <article id="concertDetails" class="panel"></article>
+
+    <aside class="panel">
+        <h2>Book Tickets</h2>
+        <form id="bookingForm">
+            <input type="hidden" id="concertId" value="{{ concert_id }}">
+            <label>Name
+                <input id="customerName" type="text" required>
+            </label>
+            <label>Email
+                <input id="customerEmail" type="email" required>
+            </label>
+            <label>Tickets
+                <input id="ticketCount" type="number" min="1" value="1" required>
+            </label>
+            <button type="submit">Book Ticket</button>
+        </form>
+        <p id="bookingMessage" class="message"></p>
+    </aside>
+</section>
+{% endblock %}
+
